@@ -4,7 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>Daniel Saiza</title>
+
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
 
 <style>
 * {
@@ -13,19 +15,23 @@
 
 body {
   margin: 0;
-  background: #fff;
-  color: #111;
+  background: #ffffff;
+  color: #111111;
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+#login {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  padding: 20px;
 }
 
 .container {
-  text-align: center;
   width: 100%;
-  padding: 20px;
 }
 
 .title {
@@ -36,55 +42,68 @@ body {
 
 .subtitle {
   font-size: 10px;
-  color: #777;
+  color: #777777;
   margin-bottom: 14px;
 }
 
 input {
   border: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dddddd;
   background: transparent;
   outline: none;
   text-align: center;
   font-size: 11px;
   padding: 8px;
   width: 180px;
-  color: #111;
+  color: #111111;
   border-radius: 0;
 }
 
 input:focus {
-  border-bottom-color: #111;
+  border-bottom-color: #111111;
 }
 
 input::placeholder {
-  color: #aaa;
+  color: #aaaaaa;
 }
 
 .error {
   font-size: 10px;
-  color: #888;
+  color: #888888;
   margin-top: 15px;
   display: none;
+}
+
+#home {
+  display: none;
+  min-height: 100vh;
+  background: #ffffff;
 }
 </style>
 </head>
 
 <body>
-<div class="container">
-  <div class="title">Access Denied</div>
-  <div class="subtitle">Enter password</div>
 
-  <input
-    type="password"
-    id="password"
-    placeholder="••••••"
-    autocomplete="off"
-  >
+<div id="login">
+  <div class="container">
+    <div class="title">Access Denied</div>
+    <div class="subtitle">Enter password</div>
 
-  <div class="error" id="error">
-    Incorrect password
+    <input
+      type="password"
+      id="password"
+      placeholder="••••••"
+      autocomplete="off"
+    >
+
+    <div class="error" id="error">
+      Incorrect password
+    </div>
   </div>
+</div>
+
+<div id="home">
+  <!-- YOUR WEBSITE STARTS HERE -->
 </div>
 
 <script>
@@ -94,7 +113,9 @@ const errorMessage = document.getElementById("error");
 passwordInput.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
     if (passwordInput.value === "tttth") {
-      window.location.href = "./";
+      document.getElementById("login").style.display = "none";
+      document.getElementById("home").style.display = "block";
+      document.title = "Daniel Saiza";
     } else {
       errorMessage.style.display = "block";
       passwordInput.value = "";
@@ -102,5 +123,6 @@ passwordInput.addEventListener("keydown", function(event) {
   }
 });
 </script>
+
 </body>
 </html>
