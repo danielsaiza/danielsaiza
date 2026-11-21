@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.title {
+  font-size: 11px;
+  font-weight: 400;
+  margin-bottom: 22px;
+}
+
+.subtitle {
+  font-size: 10px;
+  color: #777;
+  margin-bottom: 14px;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  outline: none;
+  text-align: center;
+  font-size: 11px;
+  padding: 8px;
+  width: 180px;
+  color: #111;
+  border-radius: 0;
+}
+
+input:focus {
+  border-bottom-color: #111;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+.error {
+  font-size: 10px;
+  color: #888;
+  margin-top: 15px;
+  display: none;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="title">Access Denied</div>
+  <div class="subtitle">Enter password</div>
+
+  <input
+    type="password"
+    id="password"
+    placeholder="••••••"
+    autocomplete="off"
+  >
+
+  <div class="error" id="error">
+    Incorrect password
+  </div>
+</div>
+
+<script>
+const passwordInput = document.getElementById("password");
+const errorMessage = document.getElementById("error");
+
+passwordInput.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    if (passwordInput.value === "tttth") {
+      window.location.href = "home.html";
+    } else {
+      errorMessage.style.display = "block";
+      passwordInput.value = "";
+    }
+  }
+});
+</script>
+</body>
+</html>
